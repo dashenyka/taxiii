@@ -1,5 +1,5 @@
-# Object file
-*.o
-
-# Ada Library Information
-*.ali
+def dannie(s):
+    try:
+        return int(input(s))
+    except ValueError:
+        print('Введите число')
