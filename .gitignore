@@ -3,3 +3,26 @@ def dannie(s):
         return int(input(s))
     except ValueError:
         print('Введите число')
+
+def format_currency(summa):
+    if summa % 10 == 1 and summa % 100 != 11:
+        return f'{summa} рубль'
+    elif 2 <= summa % 10 <= 4 and (summa % 100 < 10 or summa % 100 >= 20):
+        return f'{summa} рубля'
+    else:
+        return f'{summa} рублей'
+
+def main():
+    n = dannie('Введите количество работников: ')
+
+
+    rabotnik = {i + 1: dannie(f'Укажите расстояние для {i + 1} работника: ') for i in range(n)}
+
+
+    taxi = {i + 1: dannie(f'Укажите цену для {i + 1} такси: ') for i in range(n)}
+
+    taxi_sorted = sorted(taxi.items(), key=lambda x: x[1], reverse=True)
+    rabotnik_sorted = sorted(rabotnik.items(), key=lambda x: x[1])
+
+
+    total_sum = sum(taxi_sorted[i][1] * rabotnik_sorted[i][1] for i in range(n))
