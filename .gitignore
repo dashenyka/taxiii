@@ -26,3 +26,10 @@ def main():
 
 
     total_sum = sum(taxi_sorted[i][1] * rabotnik_sorted[i][1] for i in range(n))
+
+    print("Оптимальная рассадка работников: ", end=' ')
+    print(*[pair[0] for pair in taxi_sorted])
+    print(f'Общая сумма: {format_currency(total_sum)}')
+
+if __name__ == "__main__":
+    main()
